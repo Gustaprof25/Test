@@ -34,6 +34,21 @@ public class MathUtil {
             return 1;
         }
         
-        return -1;
+        return mdc(a - b, b);
+    }
+
+    public static int mdc(int ...valores){
+        if(valores.length == 0){
+            throw new IllegalArgumentException(
+                "É preciso indicar ao menos um valor para calcular o MDC");
+            
+        }
+
+        int a = valores[0];
+        for (int  b : valores){
+           a = mdc(a, b);
+        }
+
+        return a;
     }
 }
